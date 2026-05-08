@@ -19,7 +19,7 @@ app.use("/api/birthday", mailRoute);
 
 app.get("/test-mail", async (req, res) => {
   await resend.emails.send({
-    from: process.env.EMAIL_USER,
+    from: "onboarding@resend.dev",
     to: process.env.EMAIL_USER,
     subject: "Test mail",
     html: "<h1>It works!</h1>",

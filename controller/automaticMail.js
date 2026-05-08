@@ -13,7 +13,7 @@ cron.schedule(
   "0 11 8 5 *",
   async () => {
     await resend.emails.send({
-      from: process.env.EMAIL_USER,
+      from: "onboarding@resend.dev",
       to: process.env.CELEBRANT,
       subject: "SURPRISE!!!",
       html: `
@@ -51,7 +51,7 @@ cron.schedule(
   "0 11 8 5 *",
   async () => {
     await resend.emails.send({
-      from: process.env.EMAIL_USER,
+      from: "onboarding@resend.dev",
       to: process.env.EMAIL_USER,
       subject: "SURPRISE!!!",
       html: `
