@@ -3,11 +3,11 @@ import transporter from "../config/nodemailerConfig.js";
 
 // Runs at 11:00am on her birthday
 cron.schedule(
-  "0 11 8 5 *",
+  "0 9 8 5 *",
   async () => {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: process.env.CELEBRANT,
+      to: process.env.EMAIL_USER,
       subject: "SURPRISE!!!",
       html: `
       <div style="font-family: Arial, sans-serif; text-align: center; padding: 40px;">
