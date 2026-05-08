@@ -10,7 +10,7 @@ cron.schedule("*/10 * * * *", async () => {
 
 // Runs at 11:00am on her birthday
 cron.schedule(
-  "0 11 8 5 *",
+  "25 11 8 5 *",
   async () => {
     await resend.emails.send({
       from: "onboarding@resend.dev",
