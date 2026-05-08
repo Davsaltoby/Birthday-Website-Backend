@@ -1,5 +1,11 @@
 import cron from "node-cron";
 import transporter from "../config/nodemailerConfig.js";
+import fetch from "node-fetch";
+
+cron.schedule("*/10 * * * *", async () => {
+  await fetch("https://birthday-website-backend.onrender.com/api");
+  console.log("Server pinged to stay awake");
+});
 
 // Runs at 11:00am on her birthday
 cron.schedule(

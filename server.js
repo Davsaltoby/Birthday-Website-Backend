@@ -5,6 +5,7 @@ import celebrantRouter from "./routes/celebrantRoute.js";
 import mailRoute from "./routes/mailRoute.js";
 import cors from "cors";
 import "./controller/automaticMail.js";
+import transporter from "./config/nodemailerConfig.js";
 
 const app = express();
 
@@ -14,6 +15,16 @@ app.use(cors());
 
 app.use("/api", celebrantRouter);
 app.use("/api/birthday", mailRoute);
+
+app.get("/test-mail", async (req, res) => {
+  await transporter.sendMail({
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
+    subject: "Test mail",
+    html: "<h1>It works!</h1>",
+  });
+  res.json({ success: true });
+});
 
 const PORT = process.env.PORT;
 
