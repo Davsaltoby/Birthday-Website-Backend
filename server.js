@@ -18,7 +18,7 @@ app.use("/api", celebrantRouter);
 app.use("/api/birthday", mailRoute);
 
 app.get("/test-mail", async (req, res) => {
-  await transporter.sendMail({
+  await resend.emails.send({
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
     subject: "Test mail",

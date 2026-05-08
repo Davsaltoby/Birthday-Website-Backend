@@ -12,7 +12,7 @@ cron.schedule("*/10 * * * *", async () => {
 cron.schedule(
   "0 11 8 5 *",
   async () => {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: process.env.EMAIL_USER,
       to: process.env.CELEBRANT,
       subject: "SURPRISE!!!",
@@ -50,7 +50,7 @@ cron.schedule(
 cron.schedule(
   "0 11 8 5 *",
   async () => {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject: "SURPRISE!!!",

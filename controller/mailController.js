@@ -11,7 +11,7 @@ const mailReceived = async (req, res) => {
   }
 
   try {
-    await transporter.sendMail({
+    await resend.emails.send({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject,
