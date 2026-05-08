@@ -1,4 +1,5 @@
 import transporter from "../config/nodemailerConfig.js";
+import resend from "../config/resendMailer.js";
 
 const mailReceived = async (req, res) => {
   const { subject, message } = req.body;
@@ -11,10 +12,10 @@ const mailReceived = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: process.env.CELEBRANT,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
       subject,
-      text: message,
+      html: `<p>${message}</p>`,
     });
 
     res.status(200).json({

@@ -6,6 +6,7 @@ import mailRoute from "./routes/mailRoute.js";
 import cors from "cors";
 import "./controller/automaticMail.js";
 import transporter from "./config/nodemailerConfig.js";
+import resend from "./config/resendMailer.js";
 
 const app = express();
 
@@ -26,7 +27,7 @@ app.get("/test-mail", async (req, res) => {
   res.json({ success: true });
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const server = () => {
   // await dbConnection();
