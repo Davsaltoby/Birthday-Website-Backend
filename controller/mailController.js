@@ -17,9 +17,10 @@ const mailReceived = async (req, res) => {
       text: message,
     });
 
-    res
-      .status(200)
-      .json({ ok: true, message: `mail sent successfully to ${to}` });
+    res.status(200).json({
+      ok: true,
+      message: `mail sent successfully to ${process.env.EMAIL_USER}`,
+    });
   } catch (err) {
     res.status(500).json({ ok: false, error: { message: "cannot send mail" } });
   }
